@@ -1,10 +1,17 @@
+import java.util.List;
+import java.util.ArrayList;
+
 public class GestorDeTareas<T> {
 	private Node<T> cabeza;
     private int numTareas;
+    private int numTareasCompletadas;
+    private List<T> tareasCompletadas;
 
     public GestorDeTareas() {
         cabeza = null;
         numTareas = 0;
+        tareasCompletadas = new ArrayList<>();
+        numTareasCompletadas = 0;
     }
 	
 	public void agregar(T Tarea) {
@@ -71,6 +78,9 @@ public class GestorDeTareas<T> {
 	public int contarTareas() {
 		return numTareas;
 	}
+	public int contarTareasCompletadas() {
+		return numTareasCompletadas;
+	}
 	public T obtenerTareaMasPrioritaria() {
 		if (cabeza == null|| !(cabeza.getDato() instanceof Tarea)) {
             return null;
@@ -103,5 +113,20 @@ public class GestorDeTareas<T> {
         }
         cabeza = anterior;
     }
+	public void completarTarea(T Tarea) {
+		if (eliminarTarea(Tarea)) {
+			tareasCompletadas.add(Tarea);
+			numTareasCompletadas++;
+		}
+	}
+	public void imprimirTareasCompletadas() {
+        System.out.println("\nTareas completadas:");
+        for (T tarea : tareasCompletadas) {
+            System.out.println(tarea);
+        }
+    }
+	public void imprimirAmbasListas() {
+        imprimirTareas();
+        imprimirTareasCompletadas();
+    }
 }
-
