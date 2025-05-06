@@ -12,20 +12,20 @@ public class Test {
             System.out.println("Contenido de la pila: "+pilaEnteros);
             System.out.println("Elemento en el tope: "+pilaEnteros.top());
 
-            System.out.println("Elemento extraído con pop: "+pilaEnteros.pop());
-            System.out.println("Contenido tras pop: "+pilaEnteros);
+            System.out.println("Elemento extraido: "+pilaEnteros.pop());
+            System.out.println("Contenido actualizado: "+pilaEnteros);
 
             while (!pilaEnteros.isEmpty()) {
-                System.out.println("Eliminando: "+pilaEnteros.pop());
+                System.out.println("Eliminando pila: "+pilaEnteros.pop());
             }
-            // Esto debe lanzar ExceptionIsEmpty
+            //Esto debe lanzar ExceptionIsEmpty
             System.out.println("Intentando acceder al tope de una pila vacia");
             System.out.println(pilaEnteros.top());
         } catch (ExceptionIsEmpty e) {
             System.err.println("Excepción capturada: "+e.getMessage());
         }
 
-        // Pila de strings
+        //Pila de strings
         Stack<String> pilaStrings = new StackArray<>(3);
         try {
             System.out.println("\n=== Pila de Strings ===");
