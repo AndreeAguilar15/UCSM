@@ -1,7 +1,7 @@
 package Exceptions;
 public class ExceptionIsEmpty extends Exception {
     public ExceptionIsEmpty() {
-        super("La pila está vacía");
+        super("La estructura está vacia");
     }
 
     public ExceptionIsEmpty(String mensaje) {
