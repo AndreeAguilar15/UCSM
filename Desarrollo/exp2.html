@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uso de Recursos del Lenguaje</title>
+</head>
+<body>
+  <h1>USO DE RECURSOS DEL LENGUAJE</h1>
+
+  <h2>a) Uso de Variables y Constantes</h2>
+  <p>Abrir la consola para ver resultados.</p>
+
+  <h2>b) Elevación de Variables (Hoisting)</h2>
+  <p>Ver en consola cómo funciona el hoisting con <code>var</code>.</p>
+
+  <h2>c) Uso de console.log y Scope</h2>
+  <p>Ejemplos de alcance de variables y funciones anidadas.</p>
+
+  <h2>d) Tipos de Datos y Cambio de Tipos</h2>
+  <p>Ejemplos de cambio de tipo y parseo de valores.</p>
+
+  <script>
+    //a) VARIABLES Y CONSTANTES
+    {
+      let miVariable = "Soy una variable con let";
+      const miConstante = "Soy una constante con const";
+
+      console.log("Dentro del bloque:");
+      console.log("Variable:", miVariable);
+      console.log("Constante:", miConstante);
+    }
+
+    console.log("Fuera del bloque:");
+    try {
+      console.log("Variable:", miVariable);
+    } catch (error) {
+      console.log("Variable no accesible fuera del bloque →", error.message);
+    }
+    try {
+      console.log("Constante:", miConstante);
+    } catch (error) {
+      console.log("Constante no accesible fuera del bloque →", error.message);
+    }
+
+    //b) HOISTING
+
+    console.log("=== Ejemplo de Hoisting con var ===");
+    console.log(x === undefined); //true → x existe pero vale undefined
+    var x = 3; //declaración elevada, asignación se mantiene aquí
+    var myvar = 'my value';
+
+    (function() {
+      console.log(myVar); //undefined → hoisting dentro de la función
+      var myVar = 'valor local';
+    })();
+
+    //c) CONSOLE.LOG Y SCOPE
+
+    console.log("=== Ejemplo de scope ===");
+
+    let globalVar = "Soy global";
+
+    function externa() {
+      let externaVar = "Soy de externa";
+
+      function interna() {
+        let internaVar = "Soy de interna";
+
+        console.log("Acceso desde interna:");
+        console.log("globalVar:", globalVar); //accesible
+        console.log("externaVar:", externaVar); //accesible
+        console.log("internaVar:", internaVar); //accesible
+      }
+
+      interna();
+
+      console.log("Acceso desde externa:");
+      console.log("globalVar:", globalVar); //accesible
+      console.log("externaVar:", externaVar); //accesible
+      try {
+        console.log("internaVar:", internaVar); //error
+      } catch (e) {
+        console.log("No se puede acceder a internaVar desde externa →", e.message);
+      }
+    }
+
+    externa();
+
+    console.log("Acceso desde global:");
+    console.log("globalVar:", globalVar); //accesible
+    try {
+      console.log("externaVar:", externaVar);
+    } catch (e) {
+      console.log("No se puede acceder a externaVar desde global →", e.message);
+    }
+
+    //d)TIPOS DE DATOS Y CAMBIO DE TIPOS
+
+    console.log("=== Cambio de tipo de datos ===");
+    var answer = 42;
+    console.log("answer inicial:", answer, typeof answer);
+
+    answer = "Gracias por todo el pescado...";
+    console.log("answer reasignado:", answer, typeof answer);
+
+    console.log("=== parseInt ejemplos ===");
+    console.log(parseInt("F", 16));     
+    console.log(parseInt("17", 8));     
+    console.log(parseInt("15", 10));    
+    console.log(parseInt(15.99, 10));  
+    console.log(parseInt("FXX123", 16));
+    console.log(parseInt("1111", 2));   
+    console.log(parseInt("15*3", 10));  
+    console.log(parseInt("12", 13));    
+    console.log(parseInt("Hello", 8));  
+    console.log(parseInt("0x7", 10));   
+    console.log(parseInt("546", 2));    
+
+    console.log("=== Uso de toString() ===");
+    var howMany = 10;
+    console.log("howMany.toString():", howMany.toString()); 
+    console.log("45 .toString():", (45).toString()); 
+    var num = 7;
+    console.log("num en binario:", num.toString(2)); 
+  </script>
+</body>
+</html>
