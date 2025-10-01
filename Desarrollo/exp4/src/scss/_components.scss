@@ -11,25 +11,3 @@ a { color: $primary; }
 .card {
   @include card-shadow;
 }
-
-.collapse navbar-collapse {
-  position: absolute;
-  top: 100%; /* justo debajo del navbar */
-  right: 0;
-  left: auto;
-  width: auto;
-  background: #fff; /* fondo blanco para que se vea separado */
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
-}
-
-/* Que solo aplique en pantallas chicas */
-@media (min-width: 992px) {
-  .navbar-collapse {
-    position: static;
-    box-shadow: none;
-    background: transparent;
-    padding: 0;
-  }
-}
