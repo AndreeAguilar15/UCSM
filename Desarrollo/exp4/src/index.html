@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Landing - Producto</title>
+  <!-- bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="dist/css/styles.min.css">
+</head>
+
+<body>
+  <header class="py-3 bg-white shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand fw-bold" href="#">MistiTech</a>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="#caracteristicas">Características</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="#lead">Contactar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="display-5">Software que transforma tu negocio</h1>
+          <p class="lead">Mistitech combina innovación y solidez, ofreciendo software hecho a tu medida que se adapta al ritmo de tu empresa.</p>
+          <a class="btn btn-lg btn-primary me-2" href="#lead">Empieza ahora</a>
+          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#videoModal">Ver demo</button>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://img.freepik.com/vector-gratis/panel-usuario-panel-infografia-plantilla_23-2148378206.jpg?semt=ais_incoming&w=740&q=80" alt="Producto" class="img-fluid rounded shadow"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="caracteristicas" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Características principales</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h5 class="card-title">Rápido</h5>
+              <p class="card-text">Velocidad en el desarrollo y en el rendimiento de tu software.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h5 class="card-title">Seguro</h5>
+              <p class="card-text">Cada solución está diseñada con seguridad como prioridad.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h5 class="card-title">Escalable</h5>
+              <p class="card-text">Creamos sistemas que crecen contigo, sin importar el tamaño de tu negocio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Lo que dicen nuestros clientes</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <blockquote class="blockquote p-3 border rounded bg-white shadow-sm">
+            <p>Excelente servicio, aumento mis ventas.</p>
+            <footer class="blockquote-footer">Juan Pérez</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="blockquote p-3 border rounded bg-white shadow-sm">
+            <p>Fácil de usar y con buen soporte.</p>
+            <footer class="blockquote-footer">Ana García</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="blockquote p-3 border rounded bg-white shadow-sm">
+            <p>Muy recomendable.</p>
+            <footer class="blockquote-footer">Luis Gómez</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lead" class="py-5 bg-primary text-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h3>Empieza hoy</h3>
+          <p>Llena el formulario y nos contactamos.</p>
+        </div>
+        <div class="col-md-6">
+          <form id="leadForm" class="p-3 bg-white rounded text-dark shadow-sm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input required id="name" name="name" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo</label>
+              <input required id="email" type="email" name="email" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+     <div id="mensajeConfirmacion" class="alert alert-success mt-3 d-none" role="alert">
+      ✅ Datos de contacto guardados. ¡Nos comunicaremos pronto!
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault(); //Evita el envío real del formulario
+    document.getElementById("mensajeConfirmacion").classList.remove("d-none"); //Muestra el mensaje
+    this.reset(); //Limpia el formulario
+  });
+</script>
+
+  <footer class="py-4 bg-dark text-white">
+    <div class="container text-center">
+      <small>&copy; 2025 MistiTech - Todos los derechos reservados</small>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe src="" title="Demo" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

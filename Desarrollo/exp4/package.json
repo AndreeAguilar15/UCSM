@@ -1,0 +1,23 @@
+{
+  "name": "landing-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:sass": "sass src/scss/styles.scss dist/css/styles.css --no-source-map",
+    "watch:sass": "sass --watch src/scss:dist/css",
+    "build:postcss": "postcss dist/css/styles.css -o dist/css/styles.min.css",
+    "build:js": "cp src/js/main.js dist/js/main.js",
+    "build": "npm run build:sass && npm run build:postcss && npm run build:js",
+    "dev": "npm run watch:sass"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "cssnano": "^5.0.0",
+    "postcss": "^8.0.0",
+    "postcss-cli": "^9.0.0",
+    "sass": "^1.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  }
+}
